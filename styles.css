@@ -1,0 +1,153 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    margin: 0;
+    padding: 2rem; /* Add padding for spacing */
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: #d5006d; /* Dark pink color for the title */
+    font-size: 2.5rem; /* Set font size in rem for better scalability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.attempts {
+    font-size: 1.5rem; /* Font size for attempts display */
+    color: #000000; /* White text color for visibility */
+    margin-bottom: 2rem; /* Space between attempts display and game container */
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Use 1fr for responsive grid */
+    grid-gap: 2rem; /* Space between cards */
+    justify-content: center;
+    width: 90%; /* Prevent the grid from being too wide */
+    max-width: 800px; /* Set a maximum width for the grid */
+}
+
+.card {
+    width: 100%;
+    padding-top: 100%; /* Maintain aspect ratio (square) */
+    background-color: rgba(255, 111, 97, 0.8); /* Semi-transparent coral color for cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Font size for emojis */
+    color: white;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: relative; /* Needed for aspect ratio trick */
+}
+
+.card.flipped {
+    background-color: #fff; /* White background when flipped */
+    color: #ff6f61; /* Coral color for emoji when flipped */
+    transform: scale(1.1); /* Slightly enlarge the card when flipped */
+    box-shadow: 0 0 15px rgba(255, 111, 97, 0.7); /* Highlight effect */
+}
+
+.card.matched {
+    background-color: #ff6f61; /* Coral color for matched cards */
+    cursor: default;
+}
+
+.message {
+    display: none; /* Initially hidden */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for message */
+    border: 2px solid #ff6f61; /* Coral border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.3s; /* Smooth transition for the message */
+}
+
+.message h2 {
+    color: #d5006d; /* Dark pink color for message title */
+    margin: 0; /* Remove default margin */
+    font-size: 2rem; /* Adjust font size for title */
+}
+
+.message p {
+    color: #333; /* Dark text for message content */
+    font-size: 1.2rem; /* Adjust font size for content */
+}
+
+#play-again {
+    background-color: #ff6f61; /* Coral color for button */
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s, transform 0.3s; /* Added transition for button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#play-again:hover {
+    background-color: #d5006d; /* Darker pink on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* For smaller screens like tablets and smaller */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Slightly smaller font size for smaller screens */
+    }
+
+    .game-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+        grid-gap: 1.5rem; /* Smaller gap between cards */
+    }
+
+    .card {
+        font-size: 1.5rem; /* Smaller font size for emojis */
+    }
+
+    .attempts {
+        font-size: 1.2rem; /* Smaller font size for attempts */
+    }
+
+    #play-again {
+        font-size: 1.2rem; /* Smaller button text */
+        padding: 0.8rem 1.6rem; /* Adjust button padding */
+    }
+}
+
+/* For smaller phones in portrait orientation */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Even smaller title font size */
+    }
+
+    .game-container {
+        grid-template-columns: repeat(4, 1fr); /* Cards adjust to screen size */
+        grid-gap: 1rem; /* Small gap between cards */
+    }
+
+    .card {
+        font-size: 1.8rem; /* Smaller emoji size */
+    }
+
+    .attempts {
+        font-size: 1rem; /* Smaller font size for attempts */
+    }
+
+    #play-again {
+        font-size: 1rem; /* Smaller button text */
+        padding: 0.6rem 1.2rem; /* Smaller padding */
+    }
+}
